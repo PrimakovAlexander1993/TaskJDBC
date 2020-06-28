@@ -16,7 +16,7 @@ public class UserDaoJDBCImpl implements UserDao {
             connection = Util.getConnection();
             statement = connection.createStatement();
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Connection failed...");
+            System.out.println("Connection failed");
             System.out.println(e);
         }
     }
@@ -31,7 +31,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try {
             statement.executeUpdate(sqlCommand);
         } catch (SQLException e) {
-            System.out.println("Creating table is failed...");
+            System.out.println("Creating table is failed");
         }
     }
 
@@ -41,7 +41,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try {
             statement.executeUpdate(sqlCommand);
         } catch (SQLException e) {
-            System.out.println("Dropping table is failed...");
+            System.out.println("Dropping table is failed");
         }
     }
 
@@ -56,7 +56,7 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.execute();
             System.out.println("User с именем – " + name + " добавлен в базу данных");
         } catch (SQLException e) {
-            System.out.println("Saving is failed...");
+            System.out.println("Saving is failed");
         }
     }
 
@@ -66,7 +66,7 @@ public class UserDaoJDBCImpl implements UserDao {
             String sqlCommand = "DELETE FROM users WHERE Id = ";
             statement.executeUpdate(sqlCommand + id);
         } catch (SQLException e) {
-            System.out.println("Removing user is failed...");
+            System.out.println("Removing user is failed");
         }
     }
 
@@ -78,8 +78,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 try {
                     if (!resultSet.next()) break;
                 } catch (SQLException e) {
-                    System.out.println("Getting all users is failed...");
-                    System.out.println(e);
+                    System.out.println("Getting all users is failed");
                 }
                 String name = resultSet.getString("Name");
                 String lastName = resultSet.getString("lastName");
@@ -89,8 +88,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 list.add(user);
             }
         } catch (SQLException e) {
-            System.out.println("Getting all users is failed...");
-            System.out.println(e);
+            System.out.println("Getting all users is failed");
         }
         return list;
     }
@@ -100,7 +98,7 @@ public class UserDaoJDBCImpl implements UserDao {
             String sqlCommand = "DELETE FROM users";
             statement.executeUpdate(sqlCommand);
         } catch (SQLException e) {
-            System.out.println("Cleaning table is failed...");
+            System.out.println("Cleaning table is failed");
         }
 
     }
