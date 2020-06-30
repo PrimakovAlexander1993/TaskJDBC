@@ -22,7 +22,6 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void createUsersTable() {
-
         String sqlCommand = "CREATE TABLE if not exists users " +
                 "(Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, " +
                 "Name VARCHAR(20) NOT NULL, " +
@@ -36,7 +35,6 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void dropUsersTable() {
-
         String sqlCommand = "DROP TABLE if exists users";
         try {
             statement.executeUpdate(sqlCommand);
@@ -100,6 +98,5 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             System.out.println("Cleaning table is failed");
         }
-
     }
 }
